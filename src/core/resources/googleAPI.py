@@ -86,10 +86,10 @@ class googleAPI:
             charcount += len(w.word)
             content += " " + w.word.strip()
 
-            if ("." in w.word or "!" in w.word or "?" in w.word or
+            if ("." in w.word or "!" in w.word or "?" in w.word or "..." in w.word or
                     charcount > args['max_chars'] or
                     ("," in w.word and not firstword)):
-                # break sentence at: . ! ? or line length exceeded
+                # break sentence at: . ! ? ... or line length exceeded
                 # also break if , and not first word
                 end_hhmmss = time.strftime('%H:%M:%S', time.gmtime(
                     w.end_time.seconds))
