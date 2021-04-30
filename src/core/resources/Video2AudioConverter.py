@@ -6,7 +6,7 @@ class Video2AudioConverter:
     video = None
     audio = None
 
-    def fit(self, video):
+    def __init__(self, video):
         '''
         Fits video into class, also gives name to the future .wav file
         '''
@@ -34,7 +34,7 @@ class Video2AudioConverter:
         '''
         return self.audio
 
-    def clear(self):
+    def __del__(self):
         '''
         Sets fields to None
         '''

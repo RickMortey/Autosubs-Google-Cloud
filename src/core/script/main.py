@@ -1,6 +1,6 @@
-from Video2AudioConverter import *
-from googleAPI import *
-from Subs2VideoAppender import *
+from src.core.resources.Video2AudioConverter import *
+from src.core.resources.googleAPI import *
+from src.core.resources.Subs2VideoAppender import *
 
 
 def main():
@@ -27,23 +27,17 @@ def main():
     language = args.language_code
     max_chars = args.max_chars
 
-    convert2audio = Video2AudioConverter()
-    convert2audio.fit(video)
+    convert2audio = Video2AudioConverter(video)
     convert2audio.transform()
     audio = convert2audio.GetAudioPath()
-    convert2audio.clear()
 
-    transcribeSubs = googleAPI()
-    transcribeSubs.fit(audio)
+    transcribeSubs = googleAPI(audio)
     transcribeSubs.transform(language, max_chars)
     subs = transcribeSubs.GetSubsName()
-    transcribeSubs.clear()
 
-    subsAdding = Subs2VideoAppender()
-    subsAdding.fit(video, subs)
+    subsAdding = Subs2VideoAppender(audio, subs)
     subsAdding.transform()
     finalVideo = subsAdding.FinalVideo()
-    subsAdding.clear()
 
     print("Video {} with subs has been successfully created!".format(finalVideo))
 

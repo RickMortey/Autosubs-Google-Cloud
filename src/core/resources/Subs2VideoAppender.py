@@ -7,7 +7,7 @@ class Subs2VideoAppender:
     video = None
     subs = None
 
-    def fit(self, video, subs):
+    def __init__(self, video, subs):
         '''
         Fits video and subs name into class
         '''
@@ -33,7 +33,7 @@ class Subs2VideoAppender:
         '''
         return self.video.replace(".mp4", "_with_subs.mp4")
 
-    def clear(self):
+    def __del__(self):
         '''
         Sets fields to None
         '''

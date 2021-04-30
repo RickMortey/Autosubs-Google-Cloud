@@ -5,15 +5,15 @@ from google.cloud import speech
 from moviepy.editor import *
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/timur/study/MIPT/python_MIPT/autosubs_mipt_python_project/ml-dev.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/timur/study/MIPT/python_MIPT/autosubs_mipt_python_project/src/core/resources/ml-dev.json"
 
 class googleAPI:
     audio = None
     subs = None
 
-    def fit(self, audio):
+    def __init__(self, audio):
         """
-        Gives value to the audio, subs and credentials field
+        Gives value to the audio, subs
         """
         self.audio = audio
         self.subs = audio.replace(".wav", ".srt")
@@ -156,7 +156,7 @@ class googleAPI:
         self.speech2srt(language, max_chars)
         return
 
-    def clear(self):
+    def __del__(self):
         '''
         Sets fields to None
         '''
