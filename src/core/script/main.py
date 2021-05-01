@@ -35,7 +35,7 @@ def main():
     transcribeSubs.transform(language, max_chars)
     subs = transcribeSubs.GetSubsName()
 
-    subsAdding = Subs2VideoAppender(audio, subs)
+    subsAdding = Subs2VideoAppender(video, subs)
     subsAdding.transform()
     finalVideo = subsAdding.FinalVideo()
 
