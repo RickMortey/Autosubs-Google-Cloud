@@ -1,7 +1,7 @@
 # autosubs
 autosubs for video (python)
 
-Автоматическое добавление субтитров в видео на основе Google Gloud Speech-to-text API
+Автоматическое добавление субтитров в видео на основе Google Cloud Speech-to-text API
 
 ### Входные данные
 Видео формата .mp4 длительностью меньше минуты.
